@@ -8,6 +8,25 @@ $(document).ready(function() {
 
   console.log("RandomScore " + randomScore);
   console.log("gemValues array " + gemValues);
+
+  $(".goal").text("Goal: " + randomScore);
+  $(".currentScore").text("Current Score: " + currentScore);
+
+  $("#jade").on("click", function() {
+    console.log("JADE");
+  });
+
+  $("#ruby").on("click", function() {
+    console.log("RUBY");
+  });
+
+  $("#sapphire").on("click", function() {
+    console.log("SAPPHIRE");
+  });
+
+  $("#topaz").on("click", function() {
+    console.log("TOPAZ");
+  });
 });
 
 /* PseudoCode:
@@ -16,22 +35,22 @@ xx  variable to create a random score goal
 xx  variables to create random gem values
 xx  array to contain those values and the value 1 so the user can try with small increments
 xx  variable for the current score
+xx  capture the fact a user is clicking on a gem
+xx  show the user what the goal is
+xx  show the user what the current score is
 
-assign each gem a data value
+
+??  assign each gem a data value pulled from the gemValues array
 capture that data value when a user clicks on that gem
-add that data value to the score
-
-show the user what the current score is
+add the points accumulated when clicking that gem to the currentScore
 if the user is over the score, show the user they lose
 if the user === the score, they win
 if the user is under the score, they can keep playing
-
-add a reset button
 if the user loses, reset the game
 if the user wins, reset the game
 
-show how many times the user has won
-show how many times the user has lost
+is this a function?
+add a reset button which will reset the current score and the gem values but not wins or losses
 
 
 
@@ -40,8 +59,11 @@ show how many times the user has lost
 
 
 
-show the user instructions
-make the UI pretty
-add a readme
-add to general portfolio
+
+
+
+
+
+
+
 */
