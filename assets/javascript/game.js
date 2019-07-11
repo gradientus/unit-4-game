@@ -12,15 +12,13 @@ $(document).ready(function() {
   ]; //this array contains the possible values
   var gemNames = ["jade", "ruby", "sapphire", "topaz"]; //array to make sure each gem
   var currentScore = 0;
-  var clickValue = 5;
+  var clickValue = 5; // !This is a temporary variable for testing.
 
   function addToScore(currentScore, clickValue) {
+    //this function takes the value assigned to the crystal and adds that value to the current score.  It will be called in the click listeners.
     return (currentScore += clickValue);
-
     //clickValue is what the function takes when the user clicks
   }
-  console.log(addToScore(currentScore, clickValue));
-  console.log(currentScore, clickValue);
 
   $(".goal").text("Goal: " + randomScore);
   $(".currentScore").text("Current Score: " + currentScore);
@@ -28,26 +26,29 @@ $(document).ready(function() {
   $("#jade").on("click", function() {
     console.log("JADE");
     //  TODO:  function to get the value and add it to the score.
+    addToScore();
   });
 
   $("#ruby").on("click", function() {
     console.log("RUBY");
     //  TODO:  function to get the value and add it to the score.
+    addToScore();
   });
 
   $("#sapphire").on("click", function() {
     console.log("SAPPHIRE");
     //  TODO:  function to get the value and add it to the score.
+    addToScore();
   });
 
   $("#topaz").on("click", function() {
     console.log("TOPAZ");
     //  TODO:  function to get the value and add it to the score.
+    addToScore();
   });
 });
 
 // TODO function to assign values to each crystal
-$("#jade").attr;
 
 /* PseudoCode:---------------------------------------------------------------------------
 TODO:  assign each gem a data value pulled from the gemValues array
