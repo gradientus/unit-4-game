@@ -65,7 +65,7 @@ $(document).ready(function() {
       $(".losses").text("Losses: " + losses);
       resetGame();
     } else {
-      $(".currentScore").text("Current Score: " + currentScore);
+      $(".currentScore").text("Score: " + currentScore);
     }
   });
 });
