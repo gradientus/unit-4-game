@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  //these will establish the goal and the random values attached to each crystal
+  //this set the starting values of the gems
   var randomScore = Math.floor(Math.random() * 101) + 19;
   var randomGemValue1 = Math.floor(Math.random() * 12) + 1;
   var randomGemValue2 = Math.floor(Math.random() * 12) + 1;
@@ -7,7 +7,12 @@ $(document).ready(function() {
   var randomGemValue4 = Math.floor(Math.random() * 12) + 1;
   var randomGemValue5 = Math.floor(Math.random() * 12) + 1;
 
-  //this array contains the possible values
+  //these are the starting wins and losses
+  var currentScore = 0;
+  var wins = 0;
+  var losses = 0;
+
+  //this array contains the possible gem values
   var gemValues = [
     randomGemValue1,
     randomGemValue2,
@@ -16,23 +21,26 @@ $(document).ready(function() {
     randomGemValue5
   ];
 
+  //this array contains the path of each of the gem graphics
   var gemPath = [
     "assets/images/jade.png",
     "assets/images/ruby.png",
     "assets/images/sapphire.png",
     "assets/images/topaz.png",
     "assets/images/amathyst.png"
-  ]; //this array contains the path of each of the gem graphics
+  ];
 
-  var currentScore = 0;
-  var wins = 0;
-  var losses = 0;
+  //this function sets the goal, the random gem values, and the current score
+  function resetGame() {
+    randomScore = Math.floor(Math.random() * 101) + 19;
+    currentScore = 0;
+    $(".goal").text("Goal: " + randomScore);
+    $(".currentScore").text("Current Score: " + currentScore);
+    $(".wins").text("Wins: " + wins);
+    $(".losses").text("Losses: " + losses);
+  }
 
-  //?  Does this need to be a function?
-  $(".goal").text("Goal: " + randomScore);
-  $(".currentScore").text("Current Score: " + currentScore);
-  $(".wins").text("Wins: " + wins);
-  $(".losses").text("Losses: " + losses);
+  resetGame();
 
   for (var i = 0; i < gemPath.length; i++) {
     var gemPic = $("<img>");
@@ -45,21 +53,16 @@ $(document).ready(function() {
   $(".gems").on("click", function() {
     var gemValue = $(this).attr("data-value");
     currentScore += parseInt(gemValue);
-    console.log(gemValue, currentScore);
     if (currentScore === randomScore) {
       wins++;
-      console.log("WIN", wins);
+      $(".wins").text("Wins: " + wins);
+      resetGame();
     } else if (currentScore > randomScore) {
       losses++;
-      console.log("LOSE", losses);
+      $(".losses").text("Losses: " + losses);
+      resetGame();
+    } else {
+      $(".currentScore").text("Current Score: " + currentScore);
     }
   });
-
-  //TODO indicate the user lost
-  //TODO indicate the user won
-
-  //Betting
-  //Be able to convert some of your wins to money.
-  //If you have money, you can bet.
-  //You can
 });
