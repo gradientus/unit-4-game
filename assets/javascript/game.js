@@ -1,11 +1,11 @@
 $(document).ready(function() {
   //these will establish the goal and the random values attached to each crystal
-  var randomScore = Math.floor(Math.random() * 150) + 3;
-  var randomGemValue1 = Math.floor(Math.random() * 3) + 1;
-  var randomGemValue2 = Math.floor(Math.random() * 6) + 1;
+  var randomScore = Math.floor(Math.random() * 101) + 19;
+  var randomGemValue1 = Math.floor(Math.random() * 12) + 1;
+  var randomGemValue2 = Math.floor(Math.random() * 12) + 1;
   var randomGemValue3 = Math.floor(Math.random() * 12) + 1;
-  var randomGemValue4 = Math.floor(Math.random() * 24) + 1;
-  var randomGemValue5 = Math.floor(Math.random() * 48) + 1;
+  var randomGemValue4 = Math.floor(Math.random() * 12) + 1;
+  var randomGemValue5 = Math.floor(Math.random() * 12) + 1;
 
   //this array contains the possible values
   var gemValues = [
@@ -55,8 +55,11 @@ $(document).ready(function() {
     }
   });
 
-  //TODO if the current score > randomScore then you lose, losses++ (maybe indicate that somehow)
-  //TODO if the current scor === randomScore then you win, win++ (maybe indicate that too)
-  //TODO maybe add some betting of your wins here
-  //TODO add another gem, the purple one and the fashion one?
+  //TODO indicate the user lost
+  //TODO indicate the user won
+
+  //Betting
+  //Be able to convert some of your wins to money.
+  //If you have money, you can bet.
+  //You can
 });
