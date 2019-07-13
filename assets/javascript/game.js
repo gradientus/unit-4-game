@@ -40,13 +40,16 @@ $(document).ready(function() {
     $(".losses").text("Losses: " + losses);
   }
 
+  //initialize scores
   resetGame();
 
+  //run through a loop that will
   for (var i = 0; i < gemPath.length; i++) {
     var gemPic = $("<img>");
-    gemPic.addClass("gems");
+    gemPic.addClass("gems img");
     gemPic.attr("data-value", gemValues[i]);
     gemPic.attr("src", gemPath[i]);
+    gemPic.attr("alt", "photo of a gem");
     $("#gemsBox").append(gemPic);
   }
 
