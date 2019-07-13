@@ -7,24 +7,28 @@ $(document).ready(function() {
   var randomGemValue4 = Math.floor(Math.random() * 24) + 1;
   var randomGemValue5 = Math.floor(Math.random() * 48) + 1;
 
+  //this array contains the possible values
   var gemValues = [
     randomGemValue1,
     randomGemValue2,
     randomGemValue3,
     randomGemValue4,
     randomGemValue5
-  ]; //this array contains the possible values
+  ];
+
   var gemPath = [
     "assets/images/jade.png",
     "assets/images/ruby.png",
     "assets/images/sapphire.png",
     "assets/images/topaz.png",
     "assets/images/amathyst.png"
-  ];
+  ]; //this array contains the path of each of the gem graphics
+
   var currentScore = 0;
   var wins = 0;
   var losses = 0;
 
+  //?  Does this need to be a function?
   $(".goal").text("Goal: " + randomScore);
   $(".currentScore").text("Current Score: " + currentScore);
   $(".wins").text("Wins: " + wins);
@@ -39,16 +43,9 @@ $(document).ready(function() {
   }
 
   $(".gems").on("click", function() {
-    //why does $(___) have to be the class instead of the image element?
     var gemValue = $(this).attr("data-value");
     currentScore += parseInt(gemValue);
     console.log(gemValue, currentScore);
-
-    //??does this belong in the click?  how do i get it to reset?  look at past homeworks
-    //TODO if the current score > randomScore then you lose, losses++ (maybe indicate that somehow)
-    //TODO if the current scor === randomScore then you win, win++ (maybe indicate that too)
-    //TODO maybe add some betting of your wins here
-    //TODO add another gem, the purple one and the fashion one?
     if (currentScore === randomScore) {
       wins++;
       console.log("WIN", wins);
@@ -57,4 +54,9 @@ $(document).ready(function() {
       console.log("LOSE", losses);
     }
   });
+
+  //TODO if the current score > randomScore then you lose, losses++ (maybe indicate that somehow)
+  //TODO if the current scor === randomScore then you win, win++ (maybe indicate that too)
+  //TODO maybe add some betting of your wins here
+  //TODO add another gem, the purple one and the fashion one?
 });
