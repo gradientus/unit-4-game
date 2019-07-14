@@ -5,7 +5,7 @@
 
 body {
   background: lightblue url(../images/atomic.png) repeat;
-  font-family: atomic, monospace;
+  font-family: "atomic", monospace;
 }
 
 .blue-background {
@@ -17,13 +17,14 @@ body {
   margin-top: 1em;
 }
 
+ul,
 .lead,
 .card {
   font-family: "PT Sans", sans-serif;
 }
 
 .goal {
-  font-family: atomic, monospace;
+  font-family: "PT Sans", sans-serif;
   font-weight: bold;
   font-size: 1.5em;
 }
@@ -37,4 +38,17 @@ body {
   margin: 3em 1.5em 2em 1.5em;
   padding-left: 0.625em;
   padding-right: 0.625em;
+}
+
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+a:hover {
+  color: red;
+}
+a:active {
+  color: red;
 }

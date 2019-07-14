@@ -35,7 +35,7 @@ $(document).ready(function() {
     randomScore = Math.floor(Math.random() * 101) + 19;
     currentScore = 0;
     $(".goal").text("Goal: " + randomScore);
-    $(".currentScore").text("Score: " + currentScore);
+    $(".currentScore").text("Collected: " + currentScore);
     $(".wins").text("Wins: " + wins);
     $(".losses").text("Losses: " + losses);
   }
@@ -65,7 +65,7 @@ $(document).ready(function() {
       $(".losses").text("Losses: " + losses);
       resetGame();
     } else {
-      $(".currentScore").text("Score: " + currentScore);
+      $(".currentScore").text("Collected: " + currentScore);
     }
   });
 });
