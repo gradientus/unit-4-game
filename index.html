@@ -12,58 +12,66 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
     <title>Crystal Capture</title>
   </head>
 
   <body>
-    <div class="container">
-      <div class="jumbotron text-center">
-        <h1 class="display-4">Lorem.</h1>
-      </div>
-      <div class="row">
-        <div class="col col-lg-12">
-          These are the instructions.
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nostrum
-            a suscipit recusandae fugit ab ducimus incidunt soluta dolore fuga
-            eveniet necessitatibus dolorum ad facilis nihil, reiciendis unde
-            cupiditate voluptatum.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-lg-3">
-          <div class="card">
-            <div class="card-body text-center goal"></div>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="jumbotron text-center blue-background">
+              <h1 class="display-2 title">Crystal Capture</h1>
+              <p class="lead">
+                You goal is to click the gems
+              </p>
+            </div>
           </div>
         </div>
-        <div class="col col-lg-3">
-          <div class="card">
-            <div class="card-body text-center currentScore"></div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card blue-background">
+              <div class="card-body text-center goal"></div>
+            </div>
           </div>
         </div>
-        <div class="col col-lg-3">
-          <div class="card">
-            <div class="card-body text-center wins"></div>
+
+        <div class="row">
+          <div class="col col-lg-4">
+            <div class="card blue-background">
+              <div class="card-body text-center currentScore"></div>
+            </div>
+          </div>
+
+          <div class="col col-lg-4">
+            <div class="card blue-background">
+              <div class="card-body text-center wins"></div>
+            </div>
+          </div>
+
+          <div class="col col-lg-4">
+            <div class="card blue-background">
+              <div class="card-body text-center losses"></div>
+            </div>
           </div>
         </div>
-        <div class="col col-lg-3">
-          <div class="card">
-            <div class="card-body text-center losses"></div>
-          </div>
+
+        <div class="row">
+          <div class="col col-lg-12 text-center" id="gemsBox"></div>
         </div>
       </div>
-      <div class="row">
-        <div class="col col-lg-12 text-center" id="gemsBox"></div>
-      </div>
-    </div>
+    </main>
     <!--
   TODO: Fix this footer and make it sticky
 -->
 
     <!-- <footer>
-      Background Design Credits: <a target="_blank"
-        href="https://www.vecteezy.com">Vecteezy.com</a><br>
+      
 
       Icons made by <a href="https://www.flaticon.com/authors/freepik"
         title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"
@@ -73,11 +81,7 @@
         Commons
         BY 3.0" target="_blank">CC 3.0 BY</a><br>
 
-      Icons made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev"
-        title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a
-        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-      is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
-        title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+      
     </footer> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
@@ -86,5 +90,11 @@
 
 <!-- 
 TODO: Add final styles to give the page a theme, maybe Arabian knights
+TODO: Use a different more generic and ok to repeat background
+TODO: Make the make game space into somehting better
 TODO: Validate HTML 
+TODO: Maybe add a betting thing:
+If you have 5 wins, you can convert some/all those wins to money.
+That money can be used to bet whether you win the next round or not.
+You can choose
 -->

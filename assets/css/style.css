@@ -1,11 +1,40 @@
-footer {
-  position: absolute;
-  bottom: 0;
+@font-face {
+  font-family: "atomic";
+  src: url(/assets/css/atomic.ttf);
+}
+
+body {
+  background: lightblue url(../images/atomic.png) repeat;
+  font-family: atomic, monospace;
+}
+
+.blue-background {
+  background-color: #9de3ff;
+  border-radius: 2em;
+}
+
+.lead {
+  margin-top: 1em;
+}
+
+.lead,
+.card {
+  font-family: "PT Sans", sans-serif;
+}
+
+.goal {
+  font-family: atomic, monospace;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.card {
+  margin-top: 2em;
+  font-weight: bold;
 }
 
 .gems {
-  margin: 75px;
-  padding-left; 10px;
-  padding-right: 10px;
+  margin: 3em 1.5em 2em 1.5em;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
 }
-
