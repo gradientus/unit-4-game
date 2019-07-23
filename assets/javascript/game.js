@@ -1,18 +1,15 @@
 $(document).ready(function() {
-  //this set the starting values of the gems
+  //these are the starting scores
   var randomScore = Math.floor(Math.random() * 101) + 19;
+  var currentScore = 0;
+  var wins = 0;
+  var losses = 0;
+
   var randomGemValue1 = Math.floor(Math.random() * 12) + 1;
   var randomGemValue2 = Math.floor(Math.random() * 12) + 1;
   var randomGemValue3 = Math.floor(Math.random() * 12) + 1;
   var randomGemValue4 = Math.floor(Math.random() * 12) + 1;
   var randomGemValue5 = Math.floor(Math.random() * 12) + 1;
-
-  //these are the starting wins and losses
-  var currentScore = 0;
-  var wins = 0;
-  var losses = 0;
-
-  //this array contains the possible gem values
   var gemValues = [
     randomGemValue1,
     randomGemValue2,
@@ -20,6 +17,8 @@ $(document).ready(function() {
     randomGemValue4,
     randomGemValue5
   ];
+
+  //this array contains the possible gem values
 
   //this array contains the path of each of the gem graphics
   var gemPath = [
@@ -34,16 +33,22 @@ $(document).ready(function() {
   function resetGame() {
     randomScore = Math.floor(Math.random() * 101) + 19;
     currentScore = 0;
+
     $(".goal").text("Goal: " + randomScore);
     $(".currentScore").text("Collected: " + currentScore);
     $(".wins").text("Wins: " + wins);
     $(".losses").text("Losses: " + losses);
+
+    for (var i = 0; i < gemValues.length; i++) {
+      gemValues[i] = Math.floor(Math.random() * 12) + 1;
+    }
+    console.log(gemValues);
   }
 
   //initialize scores
   resetGame();
 
-  //run through a loop that will
+  //run through a loop that will populate the gems on the page
   for (var i = 0; i < gemPath.length; i++) {
     var gemPic = $("<img>");
     gemPic.addClass("gems img");
@@ -53,6 +58,7 @@ $(document).ready(function() {
     $("#gemsBox").append(gemPic);
   }
 
+  //gems clicks and game win or lose logic
   $(".gems").on("click", function() {
     var gemValue = $(this).attr("data-value");
     currentScore += parseInt(gemValue);
