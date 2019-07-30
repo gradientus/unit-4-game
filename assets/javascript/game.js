@@ -1,26 +1,15 @@
 $(document).ready(function() {
   //these are the starting scores
-  var randomScore = Math.floor(Math.random() * 101) + 19;
-  var currentScore = 0;
+  var randomScore = 0;
+  var collected = 0;
   var wins = 0;
   var losses = 0;
-
-  var randomGemValue1 = Math.floor(Math.random() * 12) + 1;
-  var randomGemValue2 = Math.floor(Math.random() * 12) + 1;
-  var randomGemValue3 = Math.floor(Math.random() * 12) + 1;
-  var randomGemValue4 = Math.floor(Math.random() * 12) + 1;
-  var randomGemValue5 = Math.floor(Math.random() * 12) + 1;
-  var gemValues = [
-    randomGemValue1,
-    randomGemValue2,
-    randomGemValue3,
-    randomGemValue4,
-    randomGemValue5
-  ];
-
-  //this array contains the possible gem values
-
-  //this array contains the path of each of the gem graphics
+  var randomGemValue1 = 0;
+  var randomGemValue2 = 0;
+  var randomGemValue3 = 0;
+  var randomGemValue4 = 0;
+  var randomGemValue5 = 0;
+  var gemValues = [];
   var gemPath = [
     "assets/images/jade.png",
     "assets/images/ruby.png",
@@ -32,46 +21,57 @@ $(document).ready(function() {
   //this function sets the goal, the random gem values, and the current score
   function resetGame() {
     randomScore = Math.floor(Math.random() * 101) + 19;
-    currentScore = 0;
-
+    collected = 0;
+    randomGemValue1 = Math.floor(Math.random() * 12) + 1;
+    randomGemValue2 = Math.floor(Math.random() * 12) + 1;
+    randomGemValue3 = Math.floor(Math.random() * 12) + 1;
+    randomGemValue4 = Math.floor(Math.random() * 12) + 1;
+    randomGemValue5 = Math.floor(Math.random() * 12) + 1;
+    gemValues = [
+      randomGemValue1,
+      randomGemValue2,
+      randomGemValue3,
+      randomGemValue4,
+      randomGemValue5
+    ];
     $(".goal").text("Goal: " + randomScore);
-    $(".currentScore").text("Collected: " + currentScore);
+    $(".currentScore").text("Collected: " + collected);
     $(".wins").text("Wins: " + wins);
     $(".losses").text("Losses: " + losses);
+  }
 
-    for (var i = 0; i < gemValues.length; i++) {
-      gemValues[i] = Math.floor(Math.random() * 12) + 1;
+  function populateGems() {
+    for (var i = 0; i < gemPath.length; i++) {
+      var gemPic = $("<img>");
+      gemPic.addClass("gems img");
+      gemPic.attr("data-value", gemValues[i]);
+      gemPic.attr("src", gemPath[i]);
+      gemPic.attr("alt", "photo of a gem");
+      $("#gemsBox").append(gemPic);
     }
-    console.log(gemValues);
   }
-
-  //initialize scores
   resetGame();
+  populateGems();
 
-  //run through a loop that will populate the gems on the page
-  for (var i = 0; i < gemPath.length; i++) {
-    var gemPic = $("<img>");
-    gemPic.addClass("gems img");
-    gemPic.attr("data-value", gemValues[i]);
-    gemPic.attr("src", gemPath[i]);
-    gemPic.attr("alt", "photo of a gem");
-    $("#gemsBox").append(gemPic);
-  }
-
-  //gems clicks and game win or lose logic
   $(".gems").on("click", function() {
     var gemValue = $(this).attr("data-value");
-    currentScore += parseInt(gemValue);
-    if (currentScore === randomScore) {
+    collected += parseInt(gemValue);
+    if (collected === randomScore) {
       wins++;
       $(".wins").text("Wins: " + wins);
+      gemValues = [];
       resetGame();
-    } else if (currentScore > randomScore) {
+      populateGems();
+    } else if (collected > randomScore) {
       losses++;
       $(".losses").text("Losses: " + losses);
+      gemValues = [];
       resetGame();
+      populateGems();
     } else {
-      $(".currentScore").text("Collected: " + currentScore);
+      $(".currentScore").text("Collected: " + collected);
     }
   });
+
+  function resetGems() {}
 });
